@@ -2,7 +2,7 @@ package com.example.demo.model;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "[group]")
 public class Group {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
