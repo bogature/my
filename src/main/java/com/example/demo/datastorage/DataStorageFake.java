@@ -48,62 +48,62 @@ public class DataStorageFake {
     Checkpoint checkpoint=new Checkpoint(1,"L",route);
     Tour tour=new Tour(1,"A",group,instructor,MIDDLE,5,localTime,PLAN,route);
 
-    List<Tourist> tourists=new ArrayList<>(Arrays.asList(
-            new Tourist("sasha",18, Gender.MALE,localDate,group, ATHLET, DifficultyLevel.HARD),
-            new Tourist("roma",18, Gender.MALE,localDate,group, ATHLET, DifficultyLevel.HARD),
-            new Tourist("nazar",18, Gender.MALE,localDate,group, ATHLET, DifficultyLevel.HARD),
-            new Tourist("kolya",19, Gender.MALE,localDate,group, ATHLET, DifficultyLevel.HARD),
-            new Tourist("scheva",20, Gender.MALE,localDate,group, ATHLET, DifficultyLevel.HARD)
+    List<Tourist> tourists = new ArrayList<>(Arrays.asList(
+            new Tourist("sasha", 18, Gender.MALE, localDate, group, ATHLET, DifficultyLevel.HARD),
+            new Tourist("roma", 18, Gender.MALE, localDate, group, ATHLET, DifficultyLevel.HARD),
+            new Tourist("nazar", 18, Gender.MALE, localDate, group, ATHLET, DifficultyLevel.HARD),
+            new Tourist("kolya", 19, Gender.MALE, localDate, group, ATHLET, DifficultyLevel.HARD),
+            new Tourist("scheva", 20, Gender.MALE, localDate, group, ATHLET, DifficultyLevel.HARD)
     ));
-    List<Group> groups=new ArrayList<>(Arrays.asList(
-            new Group(1,"143",section,coach),
-            new Group(2,"142",section,coach),
-            new Group(3,"141",section,coach)
+    List<Group> groups = new ArrayList<>(Arrays.asList(
+            new Group(1, "143", section, coach),
+            new Group(2, "142", section, coach),
+            new Group(3, "141", section, coach)
     ));
-    List<Manager> managers=new ArrayList<>(Arrays.asList(
-            new Manager(1,"Andriy",1,localDate,20),
-            new Manager(2,"B",1,localDate,20),
-            new Manager(3,"C",1,localDate,20)
+    List<Manager> managers = new ArrayList<>(Arrays.asList(
+            new Manager(1, "Andriy", 1, localDate, 20),
+            new Manager(2, "B", 1, localDate, 20),
+            new Manager(3, "C", 1, localDate, 20)
     ));
-    List<Section> sections=new ArrayList<>(Arrays.asList(
-            new Section(1,"A",manager),
-            new Section(2,"B",manager),
-            new Section(3,"C",manager)
+    List<Section> sections = new ArrayList<>(Arrays.asList(
+            new Section(1, "A", manager),
+            new Section(2, "B", manager),
+            new Section(3, "C", manager)
     ));
-    List<Coach> coaches=new ArrayList<>(Arrays.asList(
-            new Coach(1,"Alex",2,3,section,loadLevel),
-            new Coach(2,"A",2,3,section,loadLevel),
-            new Coach(3,"B",2,3,section,loadLevel)
+    List<Coach> coaches = new ArrayList<>(Arrays.asList(
+            new Coach(1, "Alex", 2, 3, section, loadLevel),
+            new Coach(2, "A", 2, 3, section, loadLevel),
+            new Coach(3, "B", 2, 3, section, loadLevel)
     ));
-    List<Instructor> instructors=new ArrayList<>(Arrays.asList(
-            new Instructor(1,"Roma", TypeOfInstructor.COACH, MIDDLE),
-            new Instructor(2,"A", TypeOfInstructor.COACH, MIDDLE),
-            new Instructor(3,"B", TypeOfInstructor.COACH, MIDDLE)
+    List<Instructor> instructors = new ArrayList<>(Arrays.asList(
+            new Instructor(1, "Roma", TypeOfInstructor.COACH, MIDDLE),
+            new Instructor(2, "A", TypeOfInstructor.COACH, MIDDLE),
+            new Instructor(3, "B", TypeOfInstructor.COACH, MIDDLE)
     ));
-    List<Competition> competitions=new ArrayList<>(Arrays.asList(
-            new Competition(1,"Champion",localDate),
-            new Competition(2,"A",localDate),
-            new Competition(3,"B",localDate)
+    List<Competition> competitions = new ArrayList<>(Arrays.asList(
+            new Competition(1, "Champion", localDate),
+            new Competition(2, "A", localDate),
+            new Competition(3, "B", localDate)
     ));
-    List<Route> routes=new ArrayList<>(Arrays.asList(
-            new Route(1,"Goverla",3000),
-            new Route(2,"A",3000),
-            new Route(3,"B",3000)
+    List<Route> routes = new ArrayList<>(Arrays.asList(
+            new Route(1, "Goverla", 3000),
+            new Route(2, "A", 3000),
+            new Route(3, "B", 3000)
     ));
-    List<Schedule> schedules=new ArrayList<>(Arrays.asList(
-            new Schedule(1,section,5,"Kobylanska 17",localTime),
-            new Schedule(2,section,5,"Kobylanska 15",localTime),
-            new Schedule(3,section,5,"Kobylanska 21",localTime)
+    List<Schedule> schedules = new ArrayList<>(Arrays.asList(
+            new Schedule(1, section, 5, "Kobylanska 17", localTime),
+            new Schedule(2, section, 5, "Kobylanska 15", localTime),
+            new Schedule(3, section, 5, "Kobylanska 21", localTime)
     ));
-    List<Checkpoint> checkpoints=new ArrayList<>(Arrays.asList(
-            new Checkpoint(1,"L",route),
-            new Checkpoint(2,"S",route),
-            new Checkpoint(3,"R",route)
+    List<Checkpoint> checkpoints = new ArrayList<>(Arrays.asList(
+            new Checkpoint(1, "L", route),
+            new Checkpoint(2, "S", route),
+            new Checkpoint(3, "R", route)
     ));
-    List<Tour> tours=new ArrayList<>(Arrays.asList(
-            new Tour(1,"A",group,instructor,MIDDLE,5,localTime,PLAN,route),
-            new Tour(2,"B",group,instructor,EASY,8,localTime,NOPLAN,route),
-            new Tour(3,"C",group,instructor,MIDDLE,5,localTime,PLAN,route)
+    List<Tour> tours = new ArrayList<>(Arrays.asList(
+            new Tour(1, "A", group, instructor, MIDDLE, 5, localTime, PLAN, route),
+            new Tour(2, "B", group, instructor, EASY, 8, localTime, NOPLAN, route),
+            new Tour(3, "C", group, instructor, MIDDLE, 5, localTime, PLAN, route)
     ));
 
 

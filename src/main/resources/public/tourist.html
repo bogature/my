@@ -218,6 +218,9 @@
                                     <th>Група</th>
                                     <th>Рівень складності</th>
                                     <th>Тип</th>
+                                    <td>
+                                        <button ng-click="ctrl.inserttourist()" style="width: 30px" class="btn-danger"><i class="fa fa-vk"></i>Додати</button>
+                                    </td>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -231,14 +234,48 @@
                                     <td>{{item.difficultyLevel}}</td>
                                     <td>{{item.typeOfTourist}}</td>
                                     <td>
-                                        <button style="width: 30px" class="btn-danger"><i class="fa fa-vk"></i></button>
+                                        <button ng-click="inserttourist" style="width: 30px" class="btn-danger"><i class="fa fa-vk"></i></button>
                                         <button style="width: 30px" class="btn-primary"><i class="fa fa-truck"></i></button>
                                         <button style="width: 30px" class="btn-info"><i class="fa fa-trash-o"></i></button>
 
                                     </td>
                                 </tr>
+
                                 </tbody>
                             </table>
+                            -----------------
+                            <button type="button" class="btn-success" data-toggle="modal" data-target="#addModal"
+                                    style="width: 63px" ng-click="ctrl.startInsertStreet()">
+                                <i class="fas fa-plus"></i>
+                            </button>
+
+                            <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+                                 aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="addModalLabel">Добавлення</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Закрити">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="modal-body">
+                                            Вкажіть номер кабінету
+                                            <br>
+                                            <input type="text" id="CabinetNumber">
+                                            <br>
+                                            Вкажіть ідентифікатор поліклініки
+                                            <br>
+                                            <input type="text" id="CabinetClinic">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                                            <button type="button" class="btn btn-primary" ng-click="ctrl.insertCabinet()">Додати</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

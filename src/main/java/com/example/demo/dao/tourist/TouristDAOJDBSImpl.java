@@ -35,6 +35,8 @@
 //        return null;
 //    }
 //
+//
+//
 //    @Override
 //    public List<Tourist> getAll() throws SQLException, IOException {
 //        tourists.clear();
@@ -50,6 +52,7 @@
 //                            rs.getInt("group_id"),
 //                            rs.getInt("type_of_tourist_id"),
 //                            rs.getInt("difficulty_level_id"),
+//
 //                    )
 //            )
 //
