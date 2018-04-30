@@ -2,6 +2,11 @@ var app = angular.module("my", []);
 
 app.controller("AppCtrl", function ($scope, $http) {
 
+    $(document).ready(function() {
+        $('#example').DataTable( {
+            "order": [[ 3, "desc" ]]
+        } );
+    } );
     $scope.tourists = [];
     $http.get('/tourists/getAll').then(function (response) {
         $scope.tourists = response.data;
@@ -13,14 +18,14 @@ app.controller("AppCtrl", function ($scope, $http) {
         $scope.tours = response.data;
         //  console.log(response);
     });
-    $scope.coaches = [];
+    $scope.instructors = [];
     $http.get('/api/getAllCoaches').then(function (response) {
-        $scope.coaches = response.data;
+        $scope.instructors = response.data;
         //   console.log(response);
     });
-    $scope.sections = [];
+    $scope.instructors = [];
     $http.get('/api/getAllSections').then(function (response) {
-        $scope.sections = response.data;
+        $scope.instructors = response.data;
         //   console.log(response);
     });
     $scope.groups = [];

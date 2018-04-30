@@ -7269,7 +7269,7 @@ function diff_halfMatch_(text1, text2) {
 
 
 /**
- * Reorder and merge like edit sections.  Merge equalities.
+ * Reorder and merge like edit instructors.  Merge equalities.
  * Any edit section can move as long as it doesn't cross an equality.
  * @param {Array} diffs Array of diff tuples.
  */

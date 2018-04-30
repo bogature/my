@@ -11036,7 +11036,7 @@ function Toolbar(calendar, toolbarOptions) {
 
 		tm = calendar.opt('theme') ? 'ui' : 'fc';
 
-		if (sections) {
+		if (instructors) {
 			if (!el) {
 				el = this.el = $("<div class='fc-toolbar "+ toolbarOptions.extraClasses + "'/>");
 			}

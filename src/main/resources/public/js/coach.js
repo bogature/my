@@ -2,27 +2,53 @@ var app = angular.module("my", []);
 
 app.controller("AppCtrl", function ($scope, $http) {
 
-    $scope.managers = [];
-    $http.get('/managers/getAll').then(function (response) {
-        $scope.managers = response.data;
+    $scope.instructors = [];
+    $http.get('/instructors/getAll').then(function (response) {
+        $scope.instructors = response.data;
         //   console.log(response);
     });
 
+    this.beforeInsert = function () {
+        $http.get('/instructors/getAll').then(function (response) {
+            var sections = response.data;
+            var selector = document.getElementById("section");
+            $(selector).empty();
+            for (var i = 0; instructors.length; i++) {
+                var option = document.createElement("option");
+                option.text = instructors[i].name;
+                option.value = instructors[i].id;
+                selector.add(option);
+            }
+        });
+        $http.get('/loadLevels/getAll').then(function (response) {
+            var loadLevels = response.data;
+            var selector = document.getElementById("loadLevel");
+            $(selector).empty();
+            for (var i = 0; loadLevels.length; i++) {
+                var option = document.createElement("option");
+                option.text = loadLevels[i].name;
+                option.value = loadLevels[i].id;
+                selector.add(option);
+            }
+        });
+    };
 
-    this.insertManager = function () {
+    this.insertCoach = function () {
         // var id = document.getElementById("id").value;
         var name = document.getElementById("name").value;
         var age = document.getElementById("age").value;
-        var dateOfBirth = document.getElementById("dateOfBirth").value;
-        var experience = document.getElementById("experience").value;
+        var salary = document.getElementById("salary").value;
+        var section = document.getElementById("section").value;
+        var loadLevel = document.getElementById("loadLevel").value;
         var req = {
             method: 'POST',
-            url: '/managers/insert',
+            url: '/instructors/insert',
             data: {
                 name: name,
                 age: age,
-                dateOfBirth: dateOfBirth,
-                experience: experience
+                salary: salary,
+                section: section,
+                loadLevel: loadLevel
             }
         };
         console.log(req);

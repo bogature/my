@@ -6,7 +6,7 @@
     <meta name="description" content="Responsive admin dashboard and web application ui kit. Stylized tables to allow audience grabs the information in a glance.">
     <meta name="keywords" content="table, toolbar">
 
-    <title>Tables &mdash; TheAdmin</title>
+    <title>Tables &mdash; TouristClub</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
@@ -15,6 +15,7 @@
     <link href="assets/css/core.min.css" rel="stylesheet">
     <link href="assets/css/app.min.css" rel="stylesheet">
     <link href="assets/css/style.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
@@ -45,11 +46,10 @@
 
 <aside class="sidebar sidebar-icons-right sidebar-icons-boxed sidebar-expand-lg">
     <header class="sidebar-header">
-        <a class="logo-icon" href="../index.html"><img src="../assets/img/logo-icon-light.png" alt="logo icon"></a>
         <span class="logo">
-          <a href="../index.html"><img src="../assets/img/logo-light.png" alt="logo"></a>
+          <a >TouristClub</a>
         </span>
-        <span class="sidebar-toggle-fold"></span>
+        <!--<span class="sidebar-toggle-fold"></span>-->
     </header>
 
     <nav class="sidebar-navigation">
@@ -139,18 +139,13 @@
     <div class="topbar-left">
         <span class="topbar-btn sidebar-toggler"><i>&#9776;</i></span>
 
-        <a class="topbar-btn d-none d-md-block" href="#" data-provide="fullscreen tooltip" title="Fullscreen">
-            <i class="material-icons fullscreen-default">fullscreen</i>
-            <i class="material-icons fullscreen-active">fullscreen_exit</i>
-        </a>
 
-        <div class="topbar-divider d-none d-md-block"></div>
 
         <div class="lookup d-none d-md-block topbar-search" id="theadmin-search">
             <input class="form-control w-300px" type="text">
             <div class="lookup-placeholder">
                 <i class="ti-search"></i>
-                <span><strong>Try</strong> button, slider, modal, etc.</span>
+
             </div>
         </div>
     </div>
@@ -188,7 +183,7 @@
 
     <div class="header-action">
         <nav class="nav">
-            <a class="nav-link active" href="tables.html">Basic</a>
+            <a class="nav-link active" href="tables.html">Таблиця</a>
         </nav>
     </div>
     </header>
@@ -202,7 +197,7 @@
                     <h4 class="card-title"><strong>Керівник</strong></h4>
 
                     <div class="card-body">
-                        <table class="table">
+                        <table id="example" class="table">
                             <thead>
                             <tr>
                                 <th>id</th>
@@ -211,8 +206,8 @@
                                 <th>Дата народження</th>
                                 <th>Досвід</th>
                                 <td><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal"
-                                            style="width: 63px" >
-                                    <i class="fas fa-plus"></i>
+                                            style="width: 72px" >
+                                    <i class="fa fa-plus"></i>
                                 </button></td>
                             </tr>
                             </thead>
@@ -225,12 +220,14 @@
                                 <td>{{item.dateOfBirth}}</td>
                                 <td>{{item.experience}}</td>
                                 <td>
-                                    <button type="button" class="btn-warning" data-toggle="modal" data-target="#updateModal"
-                                            ng-click="ctrl.startUpdateManager(item.id,item.name,item.age,item.dateOfBirth,item.experience)"
-                                            style="width: 30px">
-                                        <i class="fas fa-pencil-alt"></i>
+                                    <button type="button" class="btn-info" data-toggle="modal" data-target="#updateModal"
+                                            ng-click="ctrl.beforeUpdate(item.id,item.name,item.age,item.dateOfBirth,item.experience)"
+                                            style="width: 36px">
+                                        <i class="fa fa-refresh" style="color:white"></i>
                                     </button>
-                                    <button style="width: 30px" class="btn-info"><i class="fa fa-trash-o"></i></button>
+                                    <button type="button" ng-click="ctrl.deleteManager(item.id)" style="width: 36px"
+                                            class="btn-danger"><i class="fa fa-trash-o"></i>
+                                    </button>
 
                                 </td>
                             </tr>
@@ -333,19 +330,19 @@
     <footer class="site-footer">
         <div class="row">
             <div class="col-md-6">
-                <p class="text-center text-md-left">Copyright © 2017 <a href="http://thetheme.io/theadmin">TheAdmin</a>. All rights reserved.</p>
+                <p class="text-center text-md-left"> <a href="http://thetheme.io/theadmin"></a></p>
             </div>
 
             <div class="col-md-6">
                 <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
                     <li class="nav-item">
-                        <a class="nav-link" href="../help/articles.html">Documentation</a>
+                        <a class="nav-link" href="https://www.instagram.com/zolotuy_official">Sribnyi Oleksandr</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../help/faq.html">FAQ</a>
+                        <a href="https://www.instagram.com/zolotuy_official">. All rights reserved.</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://themeforest.net/item/theadmin-responsive-bootstrap-4-admin-dashboard-webapp-template/20475359?license=regular&amp;open_purchase_for_item_id=20475359&amp;purchasable=source&amp;ref=BootstrapTema">Purchase Now</a>
+                        <a>Copyright © 2018</a>
                     </li>
                 </ul>
             </div>
@@ -364,11 +361,14 @@
 
 
 <!-- Scripts -->
+<script href="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script href="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="js/angular.min.js"></script>
 <script type="text/javascript" src="js/manager.js"></script>
 <script src="assets/js/core.min.js"></script>
 <script src="assets/js/app.min.js"></script>
 <script src="assets/js/script.min.js"></script>
+
 
 
 </body>

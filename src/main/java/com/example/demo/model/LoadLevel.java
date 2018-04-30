@@ -14,9 +14,7 @@ public class LoadLevel {
     public LoadLevel() {
     }
 
-    public LoadLevel(int id, String name, Schedule schedule) {
-
-        this.id = id;
+    public LoadLevel( String name, Schedule schedule) {
         this.name = name;
         this.schedule = schedule;
     }
