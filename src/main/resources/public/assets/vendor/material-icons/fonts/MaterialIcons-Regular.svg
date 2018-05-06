@@ -975,7 +975,7 @@ c23 0 42 -19 42 -42v-330l-42 43v31h-31l-43 42h74v86h-86v-74l-42 43v31h-31l-43 42
     <glyph glyph-name="grid_on" unicode="grid_on" 
 d="M427 341v86h-86v-86h86zM427 213v86h-86v-86h86zM427 85v86h-86v-86h86zM299 341v86h-86v-86h86zM299 213v86h-86v-86h86zM299 85v86h-86v-86h86zM171 341v86h-86v-86h86zM171 213v86h-86v-86h86zM171 85v86h-86v-86h86zM427 469c23 0 42 -19 42 -42v-342
 c0 -23 -19 -42 -42 -42h-342c-23 0 -42 19 -42 42v342c0 23 19 42 42 42h342z" />
-    <glyph glyph-name="group" unicode="group" 
+    <glyph glyph-name="groups" unicode="groups"
 d="M341 235c50 0 150 -25 150 -75v-53h-128v53c0 32 -17 56 -42 74c7 1 14 1 20 1zM171 235c50 0 149 -25 149 -75v-53h-299v53c0 50 100 75 150 75zM171 277c-35 0 -64 29 -64 64s29 64 64 64s63 -29 63 -64s-28 -64 -63 -64zM341 277c-35 0 -64 29 -64 64s29 64 64 64
 s64 -29 64 -64s-29 -64 -64 -64z" />
     <glyph glyph-name="group_add" unicode="group_add" 

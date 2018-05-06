@@ -2,35 +2,36 @@ package com.example.demo.dao.group;
 
 import com.example.demo.dao.GeneralDao;
 import com.example.demo.datastorage.DataStorageFake;
-import com.example.demo.model.Group;
+import com.example.demo.model.Groups;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class GroupDaoFakeJDBCImpl implements GeneralDao<Group> {
+public class GroupDaoFakeJDBCImpl implements GeneralDao<Groups> {
     @Autowired
     DataStorageFake dataStorageFake;
 
 
     @Override
-    public Group insert() {
+    public Groups insert() {
         return null;
     }
 
     @Override
-    public Group update() {
+    public Groups update() {
         return null;
     }
 
     @Override
-    public Group delete() {
+    public Groups delete() {
         return null;
     }
 
     @Override
-    public List<Group> getAll() {
-        return dataStorageFake.getGroups();
+    public List<Groups> getAll() {
+      //  return dataStorageFake.getGroups();
+        return null;
     }
 }

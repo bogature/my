@@ -1,0 +1,21 @@
+{
+  "name": "my",
+  "homepage": "https://github.com/zolotuy/my",
+  "authors": [
+    "zolotuy <sanyaserebro17@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "select2": "^4.0.5",
+    "jquery": "^3.3.1"
+  }
+}

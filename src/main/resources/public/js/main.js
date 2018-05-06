@@ -38,9 +38,9 @@ app.controller("AppCtrl", function ($scope, $http) {
         $scope.checkpoints = response.data;
         //   console.log(response);
     });
-    $scope.managers = [];
+    $scope.routes = [];
     $http.get('/api/getAllManagers').then(function (response) {
-        $scope.managers = response.data;
+        $scope.routes = response.data;
         //   console.log(response);
     });
     $scope.instructors = [];

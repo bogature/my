@@ -12,8 +12,6 @@ import java.util.List;
 @Service
 public class TouristServiceImpl implements TouristService{
     @Autowired
-    TouristDaoFakeJDBCImpl touristDaoFakeJDBC;
-    @Autowired
     TouristRepository touristRepository;
 
     @Override

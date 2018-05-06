@@ -101,7 +101,7 @@
                 </a>
             </li>
             <li class="menu-item">
-                <a class="menu-link" href="group.html">
+                <a class="menu-link" href="groups.html">
                     <span class="icon fa fa-user-circle-o"></span>
                     <span class="title">Група</span>
                 </a>
@@ -205,7 +205,6 @@
                                 <th>Вік</th>
                                 <th>Зарплата</th>
                                 <th>Секція</th>
-                                <th>Рівень навантаження</th>
                                 <td><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal"
                                             style="width: 72px" ng-click="ctrl.beforeInsert()" >
                                     <i class="fa fa-plus"></i>
@@ -220,10 +219,9 @@
                                 <td>{{item.age}}</td>
                                 <td>{{item.salary}}</td>
                                 <td>{{item.section.name}}</td>
-                                <td>{{item.loadLevel.name}}</td>
                                 <td>
                                     <button type="button" class="btn-info" data-toggle="modal" data-target="#updateModal"
-                                            ng-click="ctrl.beforeUpdate(item.id,item.name,item.age,item.salary,item.section.name,item.loadLevel.name)"
+                                            ng-click="ctrl.beforeUpdate(item.id,item.name,item.age,item.salary,item.section)"
                                             style="width: 36px">
                                         <i class="fa fa-refresh" style="color:white"></i>
                                     </button>
@@ -267,11 +265,6 @@
                                         <select id="section">
                                         </select>
                                         <br>
-                                        Виберіть рівень навантаження
-                                        <br>
-                                        <select id="loadLevel">
-                                        </select>
-                                        <br>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
@@ -307,18 +300,19 @@
                                         <br>
                                         <input type="text" id="ageUPD">
                                         <br>
-                                        Вкажіть дату народження
+                                        Вкажіть заробітню плату
                                         <br>
-                                        <input type="date" id="dateOfBirthUPD">
+                                        <input type="text" id="salaryUPD">
                                         <br>
-                                        Вкажіть стаж
+                                        Виберіть секцію
                                         <br>
-                                        <input type="text" id="experienceUPD">
+                                        <select id="sectionUPD">
+                                        </select>
                                         <br>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
-                                        <button type="button" class="btn btn-primary" ng-click="ctrl.updateManager()">Обновити</button>
+                                        <button type="button" class="btn btn-primary" ng-click="ctrl.updateCoach()">Обновити</button>
                                     </div>
                                 </div>
                             </div>

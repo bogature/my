@@ -3,34 +3,22 @@ package com.example.demo.datastorage;
 import com.example.demo.enums.DifficultyLevel;
 import com.example.demo.enums.Gender;
 import com.example.demo.enums.TypeOfInstructor;
-import com.example.demo.model.LoadLevel;
-import com.example.demo.model.Group;
-import com.example.demo.model.Section;
-import com.example.demo.model.Coach;
-import com.example.demo.model.Manager;
-import com.example.demo.model.Instructor;
-import com.example.demo.model.Route;
-import com.example.demo.model.Competition;
-import com.example.demo.model.Checkpoint;
-import com.example.demo.model.Schedule;
-import com.example.demo.model.Tour;
-import com.example.demo.model.Tourist;
+import com.example.demo.model.*;
+import com.example.demo.model.Groups;
 import org.springframework.context.annotation.Configuration;
-import sun.swing.SwingUtilities2;
 
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
 import static com.example.demo.enums.DifficultyLevel.EASY;
 import static com.example.demo.enums.DifficultyLevel.MIDDLE;
 import static com.example.demo.enums.TypeOfTour.NOPLAN;
 import static com.example.demo.enums.TypeOfTour.PLAN;
-import static com.example.demo.enums.TypeOfTourist.ATHLET;
+import static com.example.demo.enums.TypeOfTourist.ATHLETE;
 
 @Configuration
 public class DataStorageFake {
@@ -40,25 +28,25 @@ public class DataStorageFake {
     Manager manager=new Manager(1,"Andriy",1,localDate,20);
     Section section=new Section(1,"A",manager);
     Coach coach=new Coach(1,"Alex",2,3,section,loadLevel);
-    Group group=new Group(1,"143",section,coach);
+    Groups groups =new Groups(1,"143",section,coach);
     Instructor instructor=new Instructor(1,"Roma", TypeOfInstructor.COACH, MIDDLE);
     Competition competition=new Competition(1,"Champion",localDate);
     Schedule schedule=new Schedule(1,section,5,"Kobylanska 17",localTime);
     Route route=new Route(1,"Goverla",3000);
     Checkpoint checkpoint=new Checkpoint(1,"L",route);
-    Tour tour=new Tour(1,"A",group,instructor,MIDDLE,5,localTime,PLAN,route);
+    Tour tour=new Tour(1,"A", groups,instructor,MIDDLE,5,localTime,PLAN,route);
 
     List<Tourist> tourists = new ArrayList<>(Arrays.asList(
-            new Tourist("sasha", 18, Gender.MALE, localDate, group, ATHLET, DifficultyLevel.HARD),
-            new Tourist("roma", 18, Gender.MALE, localDate, group, ATHLET, DifficultyLevel.HARD),
-            new Tourist("nazar", 18, Gender.MALE, localDate, group, ATHLET, DifficultyLevel.HARD),
-            new Tourist("kolya", 19, Gender.MALE, localDate, group, ATHLET, DifficultyLevel.HARD),
-            new Tourist("scheva", 20, Gender.MALE, localDate, group, ATHLET, DifficultyLevel.HARD)
+            new Tourist("sasha", 18, Gender.MALE, localDate, groups, ATHLETE, DifficultyLevel.HARD),
+            new Tourist("roma", 18, Gender.MALE, localDate, groups, ATHLETE, DifficultyLevel.HARD),
+            new Tourist("nazar", 18, Gender.MALE, localDate, groups, ATHLETE, DifficultyLevel.HARD),
+            new Tourist("kolya", 19, Gender.MALE, localDate, groups, ATHLETE, DifficultyLevel.HARD),
+            new Tourist("scheva", 20, Gender.MALE, localDate, groups, ATHLETE, DifficultyLevel.HARD)
     ));
-    List<Group> groups = new ArrayList<>(Arrays.asList(
-            new Group(1, "143", section, coach),
-            new Group(2, "142", section, coach),
-            new Group(3, "141", section, coach)
+    List<Groups> groups1 = new ArrayList<>(Arrays.asList(
+            new Groups(1, "143", section, coach),
+            new Groups(2, "142", section, coach),
+            new Groups(3, "141", section, coach)
     ));
     List<Manager> managers = new ArrayList<>(Arrays.asList(
             new Manager(1, "Andriy", 1, localDate, 20),
@@ -101,31 +89,31 @@ public class DataStorageFake {
             new Checkpoint(3, "R", route)
     ));
     List<Tour> tours = new ArrayList<>(Arrays.asList(
-            new Tour(1, "A", group, instructor, MIDDLE, 5, localTime, PLAN, route),
-            new Tour(2, "B", group, instructor, EASY, 8, localTime, NOPLAN, route),
-            new Tour(3, "C", group, instructor, MIDDLE, 5, localTime, PLAN, route)
+            new Tour(1, "A", groups, instructor, MIDDLE, 5, localTime, PLAN, route),
+            new Tour(2, "B", groups, instructor, EASY, 8, localTime, NOPLAN, route),
+            new Tour(3, "C", groups, instructor, MIDDLE, 5, localTime, PLAN, route)
     ));
 
 
-    public List<Tourist> getTourists() {
-        return tourists;
-    }
-
-    public void setTourists(List<Tourist> tourists) {
-        this.tourists = tourists;
-    }
-
-    public List<Group> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
-    }
-
-    public List<Manager> getManagers() {
-        return managers;
-    }
+//    public List<Tourist> getTourists() {
+//        return tourists;
+//    }
+//
+//    public void setTourists(List<Tourist> tourists) {
+//        this.tourists = tourists;
+//    }
+//
+//    public List<Groups> getGroups() {
+//        return groups;
+//    }
+//
+//    public void setGroups(List<Groups> groups) {
+//        this.groups = groups;
+//    }
+//
+//    public List<Manager> getManagers() {
+//        return managers;
+//    }
 
     public void setManagers(List<Manager> managers) {
         this.managers = managers;

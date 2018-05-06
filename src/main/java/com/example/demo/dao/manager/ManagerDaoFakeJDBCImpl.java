@@ -30,6 +30,7 @@ public class ManagerDaoFakeJDBCImpl implements GeneralDao<Manager> {
 
     @Override
     public List<Manager> getAll() {
-        return dataStorageFake.getManagers();
+        //return dataStorageFake.getManagers();
+        return null;
     }
 }

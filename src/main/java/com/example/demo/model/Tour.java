@@ -13,7 +13,7 @@ public class Tour {
     private int id;
     private String name;
     @ManyToOne
-    private Group group;
+    private Groups groups;
     @ManyToOne
     private Instructor instructor;
     @Enumerated(EnumType.STRING)
@@ -33,10 +33,10 @@ public class Tour {
     public Tour() {
     }
 
-    public Tour(int id, String name, Group group, Instructor instructor, DifficultyLevel difficultyLevel, int countOfBerths, LocalTime time, TypeOfTour typeOfTour, Route route) {
+    public Tour(int id, String name, Groups groups, Instructor instructor, DifficultyLevel difficultyLevel, int countOfBerths, LocalTime time, TypeOfTour typeOfTour, Route route) {
         this.id = id;
         this.name = name;
-        this.group = group;
+        this.groups = groups;
         this.instructor = instructor;
         this.difficultyLevel = difficultyLevel;
         this.countOfBerths = countOfBerths;
@@ -45,11 +45,11 @@ public class Tour {
         this.route = route;
     }
 
-    public Tour(int id, String name, Group group, Instructor instructor, DifficultyLevel difficultyLevel, int countOfBerths, LocalTime time, TypeOfTour typeOfTour, Route route, List<Tourist> tourists) {
+    public Tour(int id, String name, Groups groups, Instructor instructor, DifficultyLevel difficultyLevel, int countOfBerths, LocalTime time, TypeOfTour typeOfTour, Route route, List<Tourist> tourists) {
 
         this.id = id;
         this.name = name;
-        this.group = group;
+        this.groups = groups;
         this.instructor = instructor;
         this.difficultyLevel = difficultyLevel;
         this.countOfBerths = countOfBerths;
@@ -76,12 +76,12 @@ public class Tour {
         this.name = name;
     }
 
-    public Group getGroup() {
-        return group;
+    public Groups getGroups() {
+        return groups;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setGroups(Groups groups) {
+        this.groups = groups;
     }
 
     public Instructor getInstructor() {

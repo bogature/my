@@ -14,20 +14,19 @@ public class TouristController  {
     @Autowired
     TouristServiceImpl touristService;
 
-    DataStorageFake dataStorageFake;
-
     @PostMapping("/insert")
-    public Tourist insertTourist( @RequestBody Tourist group){
-        return touristService.insert(group);
+    public Tourist insertTourist( @RequestBody Tourist tourist){
+        return touristService.insert(tourist);
     }
 
     @PostMapping("/update")
-    public Tourist updateTourist(@RequestBody  Tourist group){
-        return touristService.update(group);
+    public Tourist updateTourist(@RequestBody Tourist tourist ,@RequestParam("id") int id){
+        tourist.setId(id);
+        return touristService.update(tourist);
     }
 
     @GetMapping("/getById")
-    public Tourist getGroupById(@RequestParam ("id") int id){
+    public Tourist getTouristById(@RequestParam ("id") int id){
         return touristService.getTouristById(id);
     }
 
@@ -38,7 +37,6 @@ public class TouristController  {
 
     @GetMapping("/getAll")
     public List<Tourist> getAllTourists(){
-       // dataStorageFake.getTourists();
         return touristService.getAll();
     }
 }

@@ -2,45 +2,58 @@ var app = angular.module("my", []);
 
 app.controller("AppCtrl", function ($scope, $http) {
 
-    $scope.sections = [];
-    $http.get('/sections/getAll').then(function (response) {
-        $scope.sections = response.data;
-        //   console.log(response);
+    $scope.tours = [];
+    $http.get('/tours/getAll').then(function (response) {
+        $scope.tours = response.data;
+           console.log(response);
     });
 
     this.beforeInsert = function () {
-        $http.get('/managers/getAll').then(function (response) {
-            var managers = response.data;
-            var selector = document.getElementById("manager");
+        $http.get('/groups/getAll').then(function (response) {
+            var groups = response.data;
+            var selector = document.getElementById("groups");
             $(selector).empty();
-            for (var i = 0; i < managers.length; i++) {
+            for (var i = 0; i < groups.length; i++) {
                 var option = document.createElement("option");
-                option.text = managers[i].name;
-                option.value = managers[i].id;
+                option.text = groups[i].name;
+                option.value = groups[i].id;
                 selector.add(option);
             }
         });
     };
 
-    this.insertSection = function () {
+    this.insertTourist = function () {
         // var id = document.getElementById("id").value;
         var name = document.getElementById("name").value;
-        var index = document.getElementById("manager").selectedIndex;
-        var managerId = document.getElementById("manager").options[index].value;
-        $http.get('/managers/getById?id='+managerId).then(function (response) {
-            var selectedManager = response.data;
+        var age = document.getElementById("age").value;
+        var indexGender = document.getElementById("gender").selectedIndex;
+        var gender = document.getElementById("gender").options[indexGender].innerHTML;
+        var dateOfBirth = document.getElementById("dateOfBirth").value;
+        var indexGroup = document.getElementById("groups").selectedIndex;
+        var groupId = document.getElementById("groups").options[indexGroup].value;
+        var indexDifficultyLevel = document.getElementById("difficultyLevel").selectedIndex;
+        var difficultyLevel = document.getElementById("difficultyLevel").options[indexDifficultyLevel].innerHTML;
+        var indexTypeOfTourist = document.getElementById("typeOfTourist").selectedIndex;
+        var typeOfTourist = document.getElementById("typeOfTourist").options[indexTypeOfTourist].innerHTML;
+        $http.get('/groups/getById?id='+groupId).then(function (response) {
+            var selectedGroup = response.data;
             var req = {
                 method: 'POST',
-                url: '/sections/insert',
+                url: '/tourists/insert',
                 data: {
                     name: name,
-                    manager: selectedManager
+                    age: age,
+                    gender: gender,
+                    dataOfBirth: dateOfBirth,
+                    groups: selectedGroup,
+                    difficultyLevel: difficultyLevel,
+                    typeOfTourist: typeOfTourist
                 }
             };
-        console.log(req);
-        $http(req).then(function (resp) {
-            window.location.reload();
-        })
+            console.log(req);
+            $http(req).then(function (resp) {
+                window.location.reload();
+            })
         });
     };
 
@@ -51,9 +64,9 @@ app.controller("AppCtrl", function ($scope, $http) {
             $(selector).empty();
             for (var i = 0; i < routes.length; i++) {
                 var option = document.createElement("option");
-               if (managers[i].id == manager.id){
-                   option.selected = 'selected';
-               }
+                if (managers[i].id == manager.id){
+                    option.selected = 'selected';
+                }
                 option.text = managers[i].name;
                 option.value = managers[i].id;
                 selector.add(option);

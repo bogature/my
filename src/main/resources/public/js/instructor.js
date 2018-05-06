@@ -41,26 +41,26 @@ app.controller("AppCtrl", function ($scope, $http) {
         typeOfInstructorSelected.value = typeOfInstructor;
     };
 
-    this.updateSection = function () {
+    this.updateInstructor = function () {
         var id = document.getElementById("idUPD").innerText;
         var name = document.getElementById("nameUPD").value;
-        var index = document.getElementById("managerUPD").selectedIndex;
-        var managerId = document.getElementById("managerUPD").options[index].value;
-        $http.get('/managers/getById?id='+managerId).then(function (response) {
-            var selectedManager = response.data;
+        var indexDifficultyLevel = document.getElementById("difficultyLevelUPD").selectedIndex;
+        var difficultyLevel = document.getElementById("difficultyLevelUPD").options[indexDifficultyLevel].innerHTML;
+        var indexTypeOfInstructor = document.getElementById("typeOfInstructorUPD").selectedIndex;
+        var typeOfInstructor = document.getElementById("typeOfInstructorUPD").options[indexTypeOfInstructor].innerHTML;
             var req = {
                 method: 'POST',
-                url: '/managers/update?id=' + id,
+                url: '/instructors/update?id=' + id,
                 data: {
                     name: name,
-                    manager: selectedManager
+                    difficultyLevel: difficultyLevel,
+                    typeOfInstructor: typeOfInstructor
                 }
             };
             console.log(req);
             $http(req).then(function (resp) {
                 window.location.reload();
             })
-        })
     };
 
     this.deleteInstructor = function (id) {

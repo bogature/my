@@ -14,12 +14,13 @@ public class CoachController {
     CoachServiceImpl coachService;
 
     @PostMapping("/insert")
-    public Coach insertCoach( @RequestParam ("coach") Coach coach){
+    public Coach insertCoach( @RequestBody Coach coach){
         return coachService.insert(coach);
     }
 
     @PostMapping("/update")
-    public Coach updateCoach(@RequestParam ("coach") Coach coach){
+    public Coach updateCoach(@RequestBody Coach coach ,@RequestParam("id") int id){
+        coach.setId(id);
         return coachService.update(coach);
     }
 
@@ -34,7 +35,7 @@ public class CoachController {
     }
 
     @GetMapping("/getAll")
-    public List<Coach> getAllcoaches(){
+    public List<Coach> getAllCoaches(){
         return coachService.getAll();
     }
 }

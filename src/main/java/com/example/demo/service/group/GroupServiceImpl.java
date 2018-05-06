@@ -1,6 +1,6 @@
 package com.example.demo.service.group;
 
-import com.example.demo.model.Group;
+import com.example.demo.model.Groups;
 import com.example.demo.repository.GroupRepository;
 import com.example.demo.service.group.interfaces.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +14,13 @@ public class GroupServiceImpl implements GroupService {
     GroupRepository groupRepository;
 
     @Override
-    public Group insert(Group group) {
-        return groupRepository.save(group);
+    public Groups insert(Groups groups) {
+        return groupRepository.save(groups);
     }
 
     @Override
-    public Group update(Group group) {
-        return groupRepository.save(group);
+    public Groups update(Groups groups) {
+        return groupRepository.save(groups);
     }
 
     @Override
@@ -29,17 +29,17 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public Group getGroupById(int id) {
+    public Groups getGroupById(int id) {
         return groupRepository.findById(id).get();
     }
 
     @Override
-    public Group getGroupByName(String name) {
+    public Groups getGroupByName(String name) {
         return null;
     }
 
     @Override
-    public List<Group> getAll() {
+    public List<Groups> getAll() {
         return groupRepository.findAll();
     }
 }

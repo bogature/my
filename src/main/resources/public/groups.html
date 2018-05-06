@@ -194,7 +194,7 @@
 
             <div class="col-lg-12 col-mg-12 col-ng-12"  ng-controller="AppCtrl as ctrl">
                 <div class="card">
-                    <h4 class="card-title"><strong>Турист</strong></h4>
+                    <h4 class="card-title"><strong>Група</strong></h4>
 
                     <div class="card-body">
                         <table id="example" class="table">
@@ -202,12 +202,8 @@
                             <tr>
                                 <th>id</th>
                                 <th>Імя</th>
-                                <th>Вік</th>
-                                <th>Стать</th>
-                                <th>Дата народження</th>
-                                <th>Група</th>
-                                <th>Рівень складності</th>
-                                <th>Тип</th>
+                                <th>Секція</th>
+                                <th>Тренер</th>
                                 <td><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal"
                                             style="width: 72px" ng-click="ctrl.beforeInsert()" >
                                     <i class="fa fa-plus"></i>
@@ -216,22 +212,18 @@
                             </thead>
                             <tbody>
 
-                            <tr ng-repeat="item in tourists">
+                            <tr ng-repeat="item in groups">
                                 <td>{{item.id}}</td>
                                 <td>{{item.name}}</td>
-                                <td>{{item.age}}</td>
-                                <td>{{item.gender}}</td>
-                                <td>{{item.dateOfBirth}}</td>
-                                <td>{{item.groups.name}}</td>
-                                <td>{{item.difficultyLevel}}</td>
-                                <td>{{item.typeOfTourist}}</td>
+                                <td>{{item.section.name}}</td>
+                                <td>{{item.coach.name}}</td>
                                 <td>
                                     <button type="button" class="btn-info" data-toggle="modal" data-target="#updateModal"
-                                            ng-click="ctrl.beforeUpdate(item.id,item.name,item.age,item.gender,item.dateOfBirth,item.groups,item.difficultyLevel,item.typeOfTourist)"
+                                            ng-click="ctrl.beforeUpdate(item.id,item.name,item.section,item.coach)"
                                             style="width: 36px">
                                         <i class="fa fa-refresh" style="color:white"></i>
                                     </button>
-                                    <button type="button" ng-click="ctrl.deleteTourist(item.id)" style="width: 36px"
+                                    <button type="button" ng-click="ctrl.deleteGroup(item.id)" style="width: 36px"
                                             class="btn-danger"><i class="fa fa-trash-o"></i>
                                     </button>
 
@@ -258,46 +250,20 @@
                                         <br>
                                         <input type="text" id="name">
                                         <br>
-                                        Вкажіть вік
+                                        Виберіть секцію
                                         <br>
-                                        <input type="text" id="age">
-                                        <br>
-                                        Вкажіть стать
-                                        <br>
-                                        <select id="gender">
-                                            <option>MALE</option>
-                                            <option>FEMALE</option>
+                                        <select id="section">
                                         </select>
                                         <br>
-                                        Вкажіть дату народження
+                                        Виберіть тренера
                                         <br>
-                                        <input type="date" id="dateOfBirth">
-                                        <br>
-                                        Виберіть групу
-                                        <br>
-                                        <select id="groups">
-                                        </select>
-                                        <br>
-                                        Виберіть рівень складності
-                                        <br>
-                                        <select id="difficultyLevel">
-                                            <option>EASY</option>
-                                            <option>MIDDLE</option>
-                                            <option>HARD</option>
-                                        </select>
-                                        <br>
-                                        Виберіть тип туристу
-                                        <br>
-                                        <select id="typeOfTourist">
-                                            <option>AMATEUR</option>
-                                            <option>ATHLETE</option>
-                                            <option>COACH</option>
+                                        <select id="coach">
                                         </select>
                                         <br>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
-                                        <button type="button" class="btn btn-primary" ng-click="ctrl.insertTourist()">Додати</button>
+                                        <button type="button" class="btn btn-primary" ng-click="ctrl.insertGroup()">Додати</button>
                                     </div>
                                 </div>
                             </div>
@@ -392,7 +358,7 @@
 <script href="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script href="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="js/angular.min.js"></script>
-<script type="text/javascript" src="js/tourist.js"></script>
+<script type="text/javascript" src="js/group.js"></script>
 <script src="assets/js/core.min.js"></script>
 <script src="assets/js/app.min.js"></script>
 <script src="assets/js/script.min.js"></script>

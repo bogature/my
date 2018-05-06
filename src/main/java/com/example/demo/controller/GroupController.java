@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Group;
+import com.example.demo.model.Groups;
 import com.example.demo.service.group.GroupServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,17 +15,18 @@ public class GroupController {
 
 
     @PostMapping("/insert")
-    public Group insertGroup( @RequestBody Group group){
-        return groupService.insert(group);
+    public Groups insertGroup(@RequestBody Groups groups){
+        return groupService.insert(groups);
     }
 
     @PostMapping("/update")
-    public Group updateGroup(@RequestBody  Group group){
-        return groupService.update(group);
+    public Groups updateGroup(@RequestBody Groups groups, @RequestParam("id") int id){
+        groups.setId(id);
+        return groupService.update(groups);
     }
 
     @GetMapping("/getById")
-    public Group getGroupById(@RequestParam ("id") int id){
+    public Groups getGroupById(@RequestParam ("id") int id){
         return groupService.getGroupById(id);
     }
 
@@ -35,7 +36,7 @@ public class GroupController {
     }
 
     @GetMapping("/getAll")
-    public List<Group> getAllGroups(){
+    public List<Groups> getAllGroups(){
         return groupService.getAll();
     }
 }

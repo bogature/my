@@ -1,58 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Students</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Responsive admin dashboard and web application ui kit. Stylized tables to allow audience grabs the information in a glance.">
+    <meta name="keywords" content="table, toolbar">
+
+    <title>Tables &mdash; TouristClub</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,300i" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="assets/css/core.min.css" rel="stylesheet">
+    <link href="assets/css/app.min.css" rel="stylesheet">
+    <link href="assets/css/style.min.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" href="assets/img/favicon.png">
 </head>
+
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script>
+    $(function(){
+        $("#header").load("header.html");
+        $("#footer").load("footer.html");
+    });
+</script>
+
 <body ng-app="my">
-<div class="container" style="margin-top: 30px" ng-controller="AppCtrl as ctrl">
-    <div class="row">
-        <div class="panel panel-default">
-            <div class="panel-heading">Tour</div>
-            <div class="panel-body">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>id</th>
-                        <th>Імя</th>
-                        <th>Група</th>
-                        <th>Інструктор</th>
-                        <th>Рівень складності</th>
-                        <th>Кількість зупинок</th>
-                        <th>Час</th>
-                        <th>Тип</th>
-                        <th>Маршрут</th>
-                    </tr>
-                    </thead>
-                    <tbody>
 
-                    <tr ng-repeat="item in tours">
-                        <td>{{item.id}}</td>
-                        <td>{{item.name}}</td>
-                        <td>{{item.group.name}}</td>
-                        <td>{{item.instructor.name}}</td>
-                        <td>{{item.difficultyLevel}}</td>
-                        <td>{{item.countOfBerths}}</td>
-                        <td>{{item.time}}</td>
-                        <td>{{item.typeOfTour}}</td>
-                        <td>{{item.route.name}}</td>
-                        <!--<td>-->
-                        <!--<button ng-click="ctrl.delchair(item.id)">DEL</button>-->
-                        <!--</td>-->
-                        <!--<td>-->
-                        <!--<button ng-click="ctrl.hideInsertButton(item)">Update</button>-->
-                        <!--</td>-->
 
-                    </tr>
+<div id="header"></div>
 
-                    </tbody>
-                </table>
+<div class="preloader">
+    <div class="spinner-dots">
+        <span class="dot1"></span>
+        <span class="dot2"></span>
+        <span class="dot3"></span>
+    </div>
+</div>
+
+<aside class="sidebar sidebar-icons-right sidebar-icons-boxed sidebar-expand-lg">
+    <header class="sidebar-header">
+        <span class="logo">
+          <a >TouristClub</a>
+        </span>
+        <!--<span class="sidebar-toggle-fold"></span>-->
+    </header>
+
+    <nav class="sidebar-navigation">
+        <ul class="menu">
+
+            <li class="menu-category">Меню</li>
+
+            <li class="menu-item">
+                <a class="menu-link" href="title.html">
+                    <span class="icon fa fa-home"></span>
+                    <span class="title">Головна</span>
+                </a>
+            </li>
+
+            <li class="menu-item">
+                <a class="menu-link" href="tourist.html">
+                    <span class="icon fa fa-user-circle-o"></span>
+                    <span class="title">Турист</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-link" href="coach.html">
+                    <span class="icon fa fa-user-circle-o"></span>
+                    <span class="title">Тренер</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-link" href="manager.html">
+                    <span class="icon fa fa-user-circle-o"></span>
+                    <span class="title">Керівник</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-link" href="instructor.html">
+                    <span class="icon fa fa-user-circle-o"></span>
+                    <span class="title">Інструктор</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-link" href="tour.html">
+                    <span class="icon fa fa-user-circle-o"></span>
+                    <span class="title">Тур</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-link" href="route.html">
+                    <span class="icon fa fa-user-circle-o"></span>
+                    <span class="title">Маршрут</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-link" href="groups.html">
+                    <span class="icon fa fa-user-circle-o"></span>
+                    <span class="title">Група</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-link" href="section.html">
+                    <span class="icon fa fa-user-circle-o"></span>
+                    <span class="title">Секція</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-link" href="competition.html">
+                    <span class="icon fa fa-user-circle-o"></span>
+                    <span class="title">Змагання</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-link" href="checkpoint.html">
+                    <span class="icon fa fa-user-circle-o"></span>
+                    <span class="title">Контрольні точки</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a class="menu-link" href="schedule.html">
+                    <span class="icon fa fa-user-circle-o"></span>
+                    <span class="title">Розклад</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+</aside>
+
+<header class="topbar">
+    <div class="topbar-left">
+        <span class="topbar-btn sidebar-toggler"><i>&#9776;</i></span>
+
+
+
+        <div class="lookup d-none d-md-block topbar-search" id="theadmin-search">
+            <input class="form-control w-300px" type="text">
+            <div class="lookup-placeholder">
+                <i class="ti-search"></i>
+
             </div>
         </div>
     </div>
+
+
+    <ul class="topbar-btns">
+        <li class="dropdown">
+            <span class="topbar-btn" data-toggle="dropdown"><img class="avatar" src="../assets/img/avatar/1.jpg" alt="..."></span>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a class="dropdown-item" href="../page/profile.html"><i class="ti-user"></i> Profile</a>
+                <a class="dropdown-item" href="../page-app/mailbox.html">
+                    <div class="flexbox">
+                        <i class="ti-email"></i>
+                        <span class="flex-grow">Inbox</span>
+                        <span class="badge badge-pill badge-info">5</span>
+                    </div>
+                </a>
+                <a class="dropdown-item" href="#"><i class="ti-settings"></i> Settings</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="../page-extra/user-lock-1.html"><i class="ti-lock"></i> Lock</a>
+                <a class="dropdown-item" href="../page-extra/user-login-3.html"><i class="ti-power-off"></i> Logout</a>
+            </div>
+        </li>
+
+
+
+
+    </ul>
+
+    </div>
+</header>
+
+
+<main>
+
+    <div class="header-action">
+        <nav class="nav">
+            <a class="nav-link active" href="tables.html">Таблиця</a>
+        </nav>
+    </div>
+    </header>
+
+
+    <div class="main-content">
+        <div class="row">
+
+            <div class="col-lg-12 col-mg-12 col-ng-12"  ng-controller="AppCtrl as ctrl">
+                <div class="card">
+                    <h4 class="card-title"><strong>Турист</strong></h4>
+
+                    <div class="card-body">
+                        <table id="example" class="table">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Імя</th>
+                                <th>Група</th>
+                                <th>Інструктор</th>
+                                <th>Рівень складності</th>
+                                <th>Кількість зупинок</th>
+                                <th>Час</th>
+                                <th>Тип</th>
+                                <th>Маршрут</th>
+                                <th>Туристи</th>
+                                <td><button type="button" class="btn-success" data-toggle="modal" data-target="#addModal"
+                                            style="width: 72px" ng-click="ctrl.beforeInsert()" >
+                                    <i class="fa fa-plus"></i>
+                                </button></td>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                            <tr ng-repeat="item in tours">
+                                <td>{{item.id}}</td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.groups.name}}</td>
+                                <td>{{item.instructor.name}}</td>
+                                <td>{{item.difficultyLevel}}</td>
+                                <td>{{item.countOfBerths}}</td>
+                                <td>{{item.time}}</td>
+                                <td>{{item.typeOfTour}}</td>
+                                <td>{{item.route.name}}</td>
+                                <td>
+                                    <select>
+                                        <option ng-repeat="tour in item.tourists">{{tour.name}}</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn-info" data-toggle="modal" data-target="#updateModal"
+                                            ng-click="ctrl.beforeUpdate(item.id,item.name,item.age,item.gender,item.dateOfBirth,item.groups,item.difficultyLevel,item.typeOfTourist)"
+                                            style="width: 36px">
+                                        <i class="fa fa-refresh" style="color:white"></i>
+                                    </button>
+                                    <button type="button" ng-click="ctrl.deleteTourist(item.id)" style="width: 36px"
+                                            class="btn-danger"><i class="fa fa-trash-o"></i>
+                                    </button>
+
+                                </td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+
+                        <!--insert-->
+                        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="addModalLabel">Добавлення</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Закрити">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        Вкажіть імя
+                                        <br>
+                                        <input type="text" id="name">
+                                        <br>
+                                        Вкажіть вік
+                                        <br>
+                                        <input type="text" id="age">
+                                        <br>
+                                        Вкажіть стать
+                                        <br>
+                                        <select id="gender">
+                                            <option>MALE</option>
+                                            <option>FEMALE</option>
+                                        </select>
+                                        <br>
+                                        Вкажіть дату народження
+                                        <br>
+                                        <input type="date" id="dateOfBirth">
+                                        <br>
+                                        Виберіть групу
+                                        <br>
+                                        <select id="groups">
+                                        </select>
+                                        <br>
+                                        Виберіть рівень складності
+                                        <br>
+                                        <select id="difficultyLevel">
+                                            <option>EASY</option>
+                                            <option>MIDDLE</option>
+                                            <option>HARD</option>
+                                        </select>
+                                        <br>
+                                        Виберіть тип туристу
+                                        <br>
+                                        <select id="typeOfTourist">
+                                            <option>AMATEUR</option>
+                                            <option>ATHLETE</option>
+                                            <option>COACH</option>
+                                        </select>
+                                        <br>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                                        <button type="button" class="btn btn-primary" ng-click="ctrl.insertTourist()">Додати</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <!--update-->
+                        <div class="modal fade" id="updateModal" tabindex="-2" role="dialog" aria-labelledby="updateModalLabel"
+                             aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="updateModalLabel">Обновлення запису</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Закрити">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ID
+                                        <br>
+                                        <div id="idUPD"></div>
+                                        Вкажіть імя
+                                        <br>
+                                        <input type="text" id="nameUPD">
+                                        <br>
+                                        Виберіть секцію
+                                        <br>
+                                        <select id="sectionUPD">
+                                        </select>
+                                        <br>
+                                        Виберіть тренера
+                                        <br>
+                                        <select id="coachUPD">
+                                        </select>
+                                        <br>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
+                                        <button type="button" class="btn btn-primary" ng-click="ctrl.updateGroup()">Обновити</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-center text-md-left"> <a href="http://thetheme.io/theadmin"></a></p>
+            </div>
+
+            <div class="col-md-6">
+                <ul class="nav nav-primary nav-dotted nav-dot-separated justify-content-center justify-content-md-end">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.instagram.com/zolotuy_official">Sribnyi Oleksandr</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://www.instagram.com/zolotuy_official">. All rights reserved.</a>
+                    </li>
+                    <li class="nav-item">
+                        <a>Copyright © 2018</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</main>
+
+<div id="qv-global" class="quickview" data-url="../assets/data/quickview-global.html">
+    <div class="spinner-linear">
+        <div class="line"></div>
+    </div>
 </div>
+<!-- END Global quickview -->
+
+
+
+<!-- Scripts -->
+<script href="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script href="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="js/angular.min.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/tour.js"></script>
+<script src="assets/js/core.min.js"></script>
+<script src="assets/js/app.min.js"></script>
+<script src="assets/js/script.min.js"></script>
+
 </body>
 </html>

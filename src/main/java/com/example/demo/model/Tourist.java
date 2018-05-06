@@ -3,15 +3,12 @@ package com.example.demo.model;
 import com.example.demo.enums.DifficultyLevel;
 import com.example.demo.enums.Gender;
 import com.example.demo.enums.TypeOfTourist;
-import com.example.demo.service.interfaces.GeneralService;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.annotation.Generated;
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
+
 @Entity
-@EntityListeners(AuditingEntityListener.class)
+//@EntityListeners(AuditingEntityListener.class)
 public class Tourist {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +19,7 @@ public class Tourist {
     private Gender gender;
     private LocalDate dateOfBirth;
     @ManyToOne
-    private Group group;
+    private Groups groups;
     @Enumerated(EnumType.STRING)
     private TypeOfTourist typeOfTourist;
     @Enumerated(EnumType.STRING)
@@ -31,12 +28,16 @@ public class Tourist {
     public Tourist() {
     }
 
-    public Tourist(String name, int age, Gender gender, LocalDate dateOfBirth, Group group, TypeOfTourist typeOfTourist, DifficultyLevel difficultyLevel) {
+
+
+
+
+    public Tourist(String name, int age, Gender gender, LocalDate dateOfBirth, Groups groups, TypeOfTourist typeOfTourist, DifficultyLevel difficultyLevel) {
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.dateOfBirth = dateOfBirth;
-        this.group = group;
+        this.groups = groups;
         this.typeOfTourist = typeOfTourist;
         this.difficultyLevel = difficultyLevel;
     }
@@ -81,12 +82,12 @@ public class Tourist {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Group getGroup() {
-        return group;
+    public Groups getGroups() {
+        return groups;
     }
 
-    public void setGroup(Group group) {
-        this.group = group;
+    public void setGroups(Groups groups) {
+        this.groups = groups;
     }
 
     public TypeOfTourist getTypeOfTourist() {

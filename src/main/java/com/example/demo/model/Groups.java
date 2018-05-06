@@ -2,8 +2,8 @@ package com.example.demo.model;
 
 import javax.persistence.*;
 
-@Entity(name = "[group]")
-public class Group {
+@Entity(name = "groups")
+public class Groups {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -13,10 +13,10 @@ public class Group {
     @ManyToOne
     private Coach coach;
 
-    public Group() {
+    public Groups() {
     }
 
-    public Group(int id, String name, Section section, Coach coach) {
+    public Groups(int id, String name, Section section, Coach coach) {
 
         this.id = id;
         this.name = name;

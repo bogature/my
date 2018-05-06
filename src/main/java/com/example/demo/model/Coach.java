@@ -12,8 +12,8 @@ public class Coach {
     private int salary;
     @ManyToOne
     private Section section;
-    @ManyToOne
-    private LoadLevel loadLevel;
+//    @ManyToOne
+//    private LoadLevel loadLevel;
 
     public Coach(int id, String name, int age, int salary, Section section, LoadLevel loadLevel) {
         this.id = id;
@@ -21,7 +21,7 @@ public class Coach {
         this.age = age;
         this.salary = salary;
         this.section = section;
-        this.loadLevel = loadLevel;
+        //this.loadLevel = loadLevel;
     }
 
     public Coach() {
@@ -69,11 +69,11 @@ public class Coach {
         this.section = section;
     }
 
-    public LoadLevel getLoadLevel() {
-        return loadLevel;
-    }
-
-    public void setLoadLevel(LoadLevel loadLevel) {
-        this.loadLevel = loadLevel;
-    }
+//    public LoadLevel getLoadLevel() {
+//        return loadLevel;
+//    }
+//
+//    public void setLoadLevel(LoadLevel loadLevel) {
+//        this.loadLevel = loadLevel;
+//    }
 }
