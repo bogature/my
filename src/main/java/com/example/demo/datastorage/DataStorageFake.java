@@ -34,7 +34,7 @@ public class DataStorageFake {
     Schedule schedule=new Schedule(1,section,5,"Kobylanska 17",localTime);
     Route route=new Route(1,"Goverla",3000);
     Checkpoint checkpoint=new Checkpoint(1,"L",route);
-    Tour tour=new Tour(1,"A", groups,instructor,MIDDLE,5,localTime,PLAN,route);
+    //Tour tour=new Tour("A", groups,instructor,MIDDLE,5,localTime,PLAN,route);
 
     List<Tourist> tourists = new ArrayList<>(Arrays.asList(
             new Tourist("sasha", 18, Gender.MALE, localDate, groups, ATHLETE, DifficultyLevel.HARD),
@@ -88,11 +88,11 @@ public class DataStorageFake {
             new Checkpoint(2, "S", route),
             new Checkpoint(3, "R", route)
     ));
-    List<Tour> tours = new ArrayList<>(Arrays.asList(
-            new Tour(1, "A", groups, instructor, MIDDLE, 5, localTime, PLAN, route),
-            new Tour(2, "B", groups, instructor, EASY, 8, localTime, NOPLAN, route),
-            new Tour(3, "C", groups, instructor, MIDDLE, 5, localTime, PLAN, route)
-    ));
+//    List<Tour> tours = new ArrayList<>(Arrays.asList(
+//            new Tour( "A", groups, instructor, MIDDLE, 5, localTime, PLAN, route),
+//            new Tour( "B", groups, instructor, EASY, 8, localTime, NOPLAN, route),
+//            new Tour( "C", groups, instructor, MIDDLE, 5, localTime, PLAN, route)
+//    ));
 
 
 //    public List<Tourist> getTourists() {
@@ -174,12 +174,12 @@ public class DataStorageFake {
     public void setCheckpoints(List<Checkpoint> checkpoints) {
         this.checkpoints = checkpoints;
     }
-
-    public List<Tour> getTours() {
-        return tours;
-    }
-
-    public void setTours(List<Tour> tours) {
-        this.tours = tours;
-    }
+//
+//    public List<Tour> getTours() {
+//        return tours;
+//    }
+//
+//    public void setTours(List<Tour> tours) {
+//        this.tours = tours;
+//    }
 }

@@ -57,38 +57,55 @@ app.controller("AppCtrl", function ($scope, $http) {
         });
     };
 
-    this.beforeUpdate = function (id, name, manager) {
-        $http.get('/managers/getAll').then(function (response) {
-            var managers = response.data;
-            var selector = document.getElementById("managerUPD");
+    this.beforeUpdate = function (id,name,age,gender,dateOfBirth,groups,difficultyLevel,typeOfTourist) {
+        $http.get('/groups/getAll').then(function (response) {
+            var groups1 = response.data;
+            var selector = document.getElementById("groupsUPD");
             $(selector).empty();
-            for (var i = 0; i < routes.length; i++) {
+            for (var i = 0; i < groups1.length; i++) {
                 var option = document.createElement("option");
-                if (managers[i].id == manager.id){
+                if (groups1[i].id == groups.id){
                     option.selected = 'selected';
                 }
-                option.text = managers[i].name;
-                option.value = managers[i].id;
+                option.text = groups1[i].name;
+                option.value = groups1[i].id;
                 selector.add(option);
             }
         });
         document.getElementById("idUPD").innerText = id;
         document.getElementById("nameUPD").value = name;
+        document.getElementById("ageUPD").value = age;
+        document.getElementById("genderUPD").value = gender;
+        document.getElementById("difficultyLevelUPD").value = difficultyLevel;
+        document.getElementById("typeOfTouristUPD").value = typeOfTourist;
     };
 
-    this.updateSection = function () {
+    this.updateTourist = function () {
         var id = document.getElementById("idUPD").innerText;
         var name = document.getElementById("nameUPD").value;
-        var index = document.getElementById("managerUPD").selectedIndex;
-        var managerId = document.getElementById("managerUPD").options[index].value;
-        $http.get('/managers/getById?id='+managerId).then(function (response) {
-            var selectedManager = response.data;
+        var age = document.getElementById("ageUPD").value;
+        var indexGender = document.getElementById("genderUPD").selectedIndex;
+        var gender = document.getElementById("genderUPD").options[indexGender].innerHTML;
+        var dateOfBirth = document.getElementById("dateOfBirthUPD").value;
+        var indexGroup = document.getElementById("groupsUPD").selectedIndex;
+        var groupId = document.getElementById("groupsUPD").options[indexGroup].value;
+        var indexDifficultyLevel = document.getElementById("difficultyLevelUPD").selectedIndex;
+        var difficultyLevel = document.getElementById("difficultyLevelUPD").options[indexDifficultyLevel].innerHTML;
+        var indexTypeOfTourist = document.getElementById("typeOfTouristUPD").selectedIndex;
+        var typeOfTourist = document.getElementById("typeOfTouristUPD").options[indexTypeOfTourist].innerHTML;
+        $http.get('/groups/getById?id='+groupId).then(function (response) {
+            var selectedGroup = response.data;
             var req = {
                 method: 'POST',
-                url: '/sections/update?id=' + id,
+                url: '/tourists/update?id=' + id,
                 data: {
                     name: name,
-                    manager: selectedManager
+                    age: age,
+                    gender: gender,
+                    dataOfBirth: dateOfBirth,
+                    groups: selectedGroup,
+                    difficultyLevel: difficultyLevel,
+                    typeOfTourist: typeOfTourist
                 }
             };
             console.log(req);
@@ -98,8 +115,8 @@ app.controller("AppCtrl", function ($scope, $http) {
         })
     };
 
-    this.deleteSection = function (id) {
-        $http.delete('sections/delete?id=' + id).then(function () {
+    this.deleteTourist = function (id) {
+        $http.delete('tourist/delete?id=' + id).then(function () {
             window.location.reload();
         });
     };

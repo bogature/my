@@ -14,8 +14,9 @@ public class TourController {
     TourServiceImpl tourService;
 
     @PostMapping("/insert")
-    public Tour insertTour( @RequestBody Tour coach){
-        return tourService.insert(coach);
+    public Tour insertTour( @RequestBody Tour tour){
+       // System.out.println(tour.toString());
+        return tourService.insert(tour);
     }
 
     @PostMapping("/update")

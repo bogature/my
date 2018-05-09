@@ -2,9 +2,9 @@ var app = angular.module("my", []);
 
 app.controller("AppCtrl", function ($scope, $http) {
 
-    $scope.routes = [];
-    $http.get('/routes/getAll').then(function (response) {
-        $scope.routes = response.data;
+    $scope.managers = [];
+    $http.get('/managers/getAll').then(function (response) {
+        $scope.managers = response.data;
         //   console.log(response);
     });
 
@@ -17,7 +17,7 @@ app.controller("AppCtrl", function ($scope, $http) {
         var experience = document.getElementById("experience").value;
         var req = {
             method: 'POST',
-            url: '/routes/insert',
+            url: '/managers/insert',
             data: {
                 name: name,
                 age: age,
@@ -48,7 +48,7 @@ app.controller("AppCtrl", function ($scope, $http) {
         var experience = document.getElementById("experienceUPD").value;
         var req = {
             method: 'POST',
-            url: '/routes/update?id=' + id,
+            url: '/managers/update?id=' + id,
             data: {
                 name: name,
                 age: age,
@@ -64,16 +64,11 @@ app.controller("AppCtrl", function ($scope, $http) {
     };
 
     this.deleteManager = function (id) {
-        $http.delete('routes/delete?id=' + id).then(function () {
+        $http.delete('managers/delete?id=' + id).then(function () {
             window.location.reload();
         });
     };
 
 });
 
-$(document).ready(function () {
-    $('#example').DataTable({
-        "order": [[3, "desc"]]
-    });
-});
 

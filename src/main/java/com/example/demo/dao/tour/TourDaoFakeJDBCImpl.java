@@ -30,6 +30,7 @@ public class TourDaoFakeJDBCImpl implements GeneralDao<Tour> {
 
     @Override
     public List<Tour> getAll() {
-        return dataStorageFake.getTours();
+       // return dataStorageFake.getTours();
+        return null;
     }
 }

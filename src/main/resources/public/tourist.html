@@ -325,20 +325,46 @@
                                         <br>
                                         <input type="text" id="nameUPD">
                                         <br>
-                                        Виберіть секцію
+                                        Вкажіть вік
                                         <br>
-                                        <select id="sectionUPD">
+                                        <input type="text" id="ageUPD">
+                                        <br>
+                                        Вкажіть стать
+                                        <br>
+                                        <select id="genderUPD">
+                                            <option>MALE</option>
+                                            <option>FEMALE</option>
                                         </select>
                                         <br>
-                                        Виберіть тренера
+                                        Вкажіть дату народження
                                         <br>
-                                        <select id="coachUPD">
+                                        <input type="date" id="dateOfBirthUPD">
+                                        <br>
+                                        Виберіть групу
+                                        <br>
+                                        <select id="groupsUPD">
+                                        </select>
+                                        <br>
+                                        Виберіть рівень складності
+                                        <br>
+                                        <select id="difficultyLevelUPD">
+                                            <option>EASY</option>
+                                            <option>MIDDLE</option>
+                                            <option>HARD</option>
+                                        </select>
+                                        <br>
+                                        Виберіть тип туристу
+                                        <br>
+                                        <select id="typeOfTouristUPD">
+                                            <option>AMATEUR</option>
+                                            <option>ATHLETE</option>
+                                            <option>COACH</option>
                                         </select>
                                         <br>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
-                                        <button type="button" class="btn btn-primary" ng-click="ctrl.updateGroup()">Обновити</button>
+                                        <button type="button" class="btn btn-primary" ng-click="ctrl.updateTourist()">Обновити</button>
                                     </div>
                                 </div>
                             </div>

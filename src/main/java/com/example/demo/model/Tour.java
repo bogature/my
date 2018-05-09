@@ -20,11 +20,28 @@ public class Tour {
     private DifficultyLevel difficultyLevel;
     private int countOfBerths;
     private LocalTime time;
+
+    @Override
+    public String toString() {
+        return "Tour{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", groups=" + groups +
+                ", instructor=" + instructor +
+                ", difficultyLevel=" + difficultyLevel +
+                ", countOfBerths=" + countOfBerths +
+                ", time=" + time +
+                ", typeOfTour=" + typeOfTour +
+                ", route=" + route +
+                ", tourists=" + tourists +
+                '}';
+    }
+
     @Enumerated(EnumType.STRING)
     private TypeOfTour typeOfTour;
     @ManyToOne
     private Route route;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.MERGE)
     @JoinTable(name = "tour_tourist",
             joinColumns = @JoinColumn(name = "tour_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "tourist_id", referencedColumnName = "id"))
@@ -33,21 +50,8 @@ public class Tour {
     public Tour() {
     }
 
-    public Tour(int id, String name, Groups groups, Instructor instructor, DifficultyLevel difficultyLevel, int countOfBerths, LocalTime time, TypeOfTour typeOfTour, Route route) {
-        this.id = id;
-        this.name = name;
-        this.groups = groups;
-        this.instructor = instructor;
-        this.difficultyLevel = difficultyLevel;
-        this.countOfBerths = countOfBerths;
-        this.time = time;
-        this.typeOfTour = typeOfTour;
-        this.route = route;
-    }
 
-    public Tour(int id, String name, Groups groups, Instructor instructor, DifficultyLevel difficultyLevel, int countOfBerths, LocalTime time, TypeOfTour typeOfTour, Route route, List<Tourist> tourists) {
-
-        this.id = id;
+    public Tour( String name, Groups groups, Instructor instructor, DifficultyLevel difficultyLevel, int countOfBerths, LocalTime time, TypeOfTour typeOfTour, Route route, List<Tourist> tourists) {
         this.name = name;
         this.groups = groups;
         this.instructor = instructor;

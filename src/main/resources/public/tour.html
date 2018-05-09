@@ -20,6 +20,7 @@
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
     <link rel="icon" href="assets/img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="bower_components/select2/dist/css/select2.min.css">
 </head>
 
 
@@ -194,7 +195,7 @@
 
             <div class="col-lg-12 col-mg-12 col-ng-12"  ng-controller="AppCtrl as ctrl">
                 <div class="card">
-                    <h4 class="card-title"><strong>Турист</strong></h4>
+                    <h4 class="card-title"><strong>Похід</strong></h4>
 
                     <div class="card-body">
                         <table id="example" class="table">
@@ -235,11 +236,11 @@
                                 </td>
                                 <td>
                                     <button type="button" class="btn-info" data-toggle="modal" data-target="#updateModal"
-                                            ng-click="ctrl.beforeUpdate(item.id,item.name,item.age,item.gender,item.dateOfBirth,item.groups,item.difficultyLevel,item.typeOfTourist)"
+                                            ng-click="ctrl.beforeUpdate(item.id,item.name,item.groups,item.instructor,item.difficultyLevel,item.countOfBerths,item.time,item.typeOfTour,item.route,item.tourists)"
                                             style="width: 36px">
                                         <i class="fa fa-refresh" style="color:white"></i>
                                     </button>
-                                    <button type="button" ng-click="ctrl.deleteTourist(item.id)" style="width: 36px"
+                                    <button type="button" ng-click="ctrl.deleteTour(item.id)" style="width: 36px"
                                             class="btn-danger"><i class="fa fa-trash-o"></i>
                                     </button>
 
@@ -266,24 +267,14 @@
                                         <br>
                                         <input type="text" id="name">
                                         <br>
-                                        Вкажіть вік
-                                        <br>
-                                        <input type="text" id="age">
-                                        <br>
-                                        Вкажіть стать
-                                        <br>
-                                        <select id="gender">
-                                            <option>MALE</option>
-                                            <option>FEMALE</option>
-                                        </select>
-                                        <br>
-                                        Вкажіть дату народження
-                                        <br>
-                                        <input type="date" id="dateOfBirth">
-                                        <br>
                                         Виберіть групу
                                         <br>
                                         <select id="groups">
+                                            </select>
+                                        <br>
+                                        Виберіть інструктора
+                                        <br>
+                                        <select id="instructor">
                                         </select>
                                         <br>
                                         Виберіть рівень складності
@@ -294,18 +285,40 @@
                                             <option>HARD</option>
                                         </select>
                                         <br>
-                                        Виберіть тип туристу
+                                        Вкажіть кількість зупинок
                                         <br>
-                                        <select id="typeOfTourist">
-                                            <option>AMATEUR</option>
-                                            <option>ATHLETE</option>
-                                            <option>COACH</option>
+                                        <input type="text" id="countOfBerths">
+                                        <br>
+                                        Вкажіть тривалість походу
+                                        <br>
+                                        <input type="time" id="time">
+                                        <br>
+                                        Виберіть тип
+                                        <br>
+                                        <select id="typeOfTour">
+                                            <option>PLAN</option>
+                                            <option>NOPLAN</option>
+                                        </select>
+                                        <br>
+                                        Виберіть маршрут
+                                        <br>
+                                        <select id="route">
+                                        </select>
+                                        <br>
+                                        Виберіть туристів
+                                        <br>
+                                        <select style="width:400px" id="tourist" name="tourists[]" class="selections" multiple="multiple">
                                         </select>
                                         <br>
                                     </div>
+                                    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+                                    <script src="bower_components/select2/dist/js/select2.min.js"></script>
+                                    <script type="text/javascript">
+                                        $(".selections").select2();
+                                    </script>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
-                                        <button type="button" class="btn btn-primary" ng-click="ctrl.insertTourist()">Додати</button>
+                                        <button type="button" class="btn btn-primary" ng-click="ctrl.insertTour()">Додати</button>
                                     </div>
                                 </div>
                             </div>
@@ -333,20 +346,58 @@
                                         <br>
                                         <input type="text" id="nameUPD">
                                         <br>
-                                        Виберіть секцію
+                                        Виберіть групу
                                         <br>
-                                        <select id="sectionUPD">
+                                        <select id="groupsUPD">
                                         </select>
                                         <br>
-                                        Виберіть тренера
+                                        Виберіть інструктора
                                         <br>
-                                        <select id="coachUPD">
+                                        <select id="instructorUPD">
+                                        </select>
+                                        <br>
+                                        Виберіть рівень складності
+                                        <br>
+                                        <select id="difficultyLevelUPD">
+                                            <option>EASY</option>
+                                            <option>MIDDLE</option>
+                                            <option>HARD</option>
+                                        </select>
+                                        <br>
+                                        Вкажіть кількість зупинок
+                                        <br>
+                                        <input type="text" id="countOfBerthsUPD">
+                                        <br>
+                                        Вкажіть тривалість походу
+                                        <br>
+                                        <input type="time" id="timeUPD">
+                                        <br>
+                                        Виберіть тип
+                                        <br>
+                                        <select id="typeOfTourUPD">
+                                            <option>PLAN</option>
+                                            <option>NOPLAN</option>
+                                        </select>
+                                        <br>
+                                        Виберіть маршрут
+                                        <br>
+                                        <select id="routeUPD">
+                                        </select>
+                                        <br>
+                                        Виберіть туристів
+                                        <br>
+                                        <select style="width:400px" id="touristUPD" name="tourists[]" class="selectionsUPD" multiple="multiple">
                                         </select>
                                         <br>
                                     </div>
+                                    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+                                    <script src="bower_components/select2/dist/js/select2.min.js"></script>
+                                    <script type="text/javascript">
+                                        $(".selectionsUPD").select2();
+                                    </script>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Закрити</button>
-                                        <button type="button" class="btn btn-primary" ng-click="ctrl.updateGroup()">Обновити</button>
+                                        <button type="button" class="btn btn-primary" ng-click="ctrl.updateTour()">Обновити</button>
                                     </div>
                                 </div>
                             </div>
