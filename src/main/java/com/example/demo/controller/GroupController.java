@@ -39,4 +39,23 @@ public class GroupController {
     public List<Groups> getAllGroups(){
         return groupService.getAll();
     }
+
+    @RequestMapping("/getGroupsBySection")
+    public List<Groups> getGroupsBySection(@RequestParam("id") int id) {
+        return groupService.getGroupsBySection(id);
+    }
+    @RequestMapping("/getCountGroupsBySection")
+    public int getCountGroupsBySection(@RequestParam("id")int id) {
+        return groupService.getCountGroupsBySection(id);
+    }
+
+    @RequestMapping("/getGroupsByCoach")
+    public List<Groups> getGroupsByCoach(@RequestParam("id")int id) {
+        return groupService.getGroupsByCoach(id);
+    }
+
+    @RequestMapping("/getCountGroupsByCoach")
+    public int getCountGroupsByCoach(@RequestParam("id")int id) {
+        return groupService.getCountGroupsByCoach(id);
+    }
 }

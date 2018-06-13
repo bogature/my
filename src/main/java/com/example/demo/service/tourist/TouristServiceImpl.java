@@ -60,5 +60,9 @@ public class TouristServiceImpl implements TouristService{
         return touristRepository.getTouristByType(type_id);
     }
 
+    public int getCountTouristByType(TypeOfTourist type_id) {
+        return touristRepository.getCountTouristByType(type_id);
+    }
+
 
 }

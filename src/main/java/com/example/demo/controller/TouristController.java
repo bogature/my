@@ -62,6 +62,11 @@ public class TouristController  {
         return touristService.getCountTouristByAge(age);
     }
 
+    @RequestMapping("/getCountTouristByType")
+    public int getCountTouristByType(@RequestParam("type_id") TypeOfTourist type_id){
+        return touristService.getCountTouristByType(type_id);
+    }
+
     @RequestMapping("/getTouristByType")
     public List<Tourist> getTouristByType(@RequestParam("type_id") TypeOfTourist type_id){
         return touristService.getTouristByType(type_id);
