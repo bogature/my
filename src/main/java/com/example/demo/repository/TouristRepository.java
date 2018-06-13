@@ -18,4 +18,17 @@ public interface TouristRepository extends JpaRepository<Tourist,Integer> {
 //    Req 2
     @Query(" select count (tour) from Tourist tour  where  tour.groups.id = :group_id")
     int getCountTouristByGroup(@Param("group_id") int group_id);
+
+//    Req 3
+    @Query(" select tour from Tourist tour  where  tour.typeOfTourist > :type_id")
+    List<Tourist> getTouristByType(@Param("type_id") int type_id);
+
+//    Req 4
+    @Query(" select count (tour) from Tourist tour where tour.age > :age")
+    int getCountTouristByAge(@Param("age") int age);
+
+//    Req 5
+    @Query(" select tour from Tourist tour  where  tour.age > :age")
+    List<Tourist> getTouristByAge(@Param("age") int age);
+
 }

@@ -24,15 +24,7 @@
 </head>
 
 
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script>
-    $(function(){
-        $("#header").load("header.html");
-        $("#footer").load("footer.html");
-    });
-</script>
-
-<body ng-app="my">
+<body ng-app="my_req_4">
 
 
 <div id="header"></div>
@@ -59,74 +51,74 @@
             <li class="menu-category">Меню</li>
 
             <li class="menu-item">
-                <a class="menu-link" href="title.html">
+                <a class="menu-link" href="../title.html">
                     <span class="icon fa fa-home"></span>
                     <span class="title">Головна</span>
                 </a>
             </li>
 
             <li class="menu-item">
-                <a class="menu-link" href="tourist.html">
+                <a class="menu-link" href="../tourist.html">
                     <span class="icon fa fa-user-circle-o"></span>
                     <span class="title">Турист</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a class="menu-link" href="coach.html">
+                <a class="menu-link" href="../coach.html">
                     <span class="icon fa fa-user-circle-o"></span>
                     <span class="title">Тренер</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a class="menu-link" href="manager.html">
+                <a class="menu-link" href="../manager.html">
                     <span class="icon fa fa-user-circle-o"></span>
                     <span class="title">Керівник</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a class="menu-link" href="instructor.html">
+                <a class="menu-link" href="../instructor.html">
                     <span class="icon fa fa-user-circle-o"></span>
                     <span class="title">Інструктор</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a class="menu-link" href="tour.html">
+                <a class="menu-link" href="../tour.html">
                     <span class="icon fa fa-user-circle-o"></span>
                     <span class="title">Тур</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a class="menu-link" href="route.html">
+                <a class="menu-link" href="../route.html">
                     <span class="icon fa fa-user-circle-o"></span>
                     <span class="title">Маршрут</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a class="menu-link" href="groups.html">
+                <a class="menu-link" href="../groups.html">
                     <span class="icon fa fa-user-circle-o"></span>
                     <span class="title">Група</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a class="menu-link" href="section.html">
+                <a class="menu-link" href="../section.html">
                     <span class="icon fa fa-user-circle-o"></span>
                     <span class="title">Секція</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a class="menu-link" href="competition.html">
+                <a class="menu-link" href="../competition.html">
                     <span class="icon fa fa-user-circle-o"></span>
                     <span class="title">Змагання</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a class="menu-link" href="checkpoint.html">
+                <a class="menu-link" href="../checkpoint.html">
                     <span class="icon fa fa-user-circle-o"></span>
                     <span class="title">Контрольні точки</span>
                 </a>
             </li>
             <li class="menu-item">
-                <a class="menu-link" href="schedule.html">
+                <a class="menu-link" href="../schedule.html">
                     <span class="icon fa fa-user-circle-o"></span>
                     <span class="title">Розклад</span>
                 </a>
@@ -189,8 +181,38 @@
         <div class="row">
 
             <div class="col-lg-12 col-mg-12 col-ng-12">
-                <div class="card">
-                    <h2 style="padding: 10px">Запит №1 Одержати список туристів заданої категорії</h2>
+
+                <div class="card" ng-controller="req_4 as ctrl">
+                    <br>
+                    <h2 style="padding: 15px">Запит №4 Одержати кількість туристів які старші заданого віку </h2>
+                    <div class="col-lg-12 col-mg-12 col-ng-12">
+
+                        <br>
+
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <label>Вік:</label>
+                            <input class="form-control" type="text" id="Аge">
+                        </div>
+
+
+                        <div class="col-sm-12 col-md-1 col-lg-1">
+                            <br>
+                            <button type="button" class="btn btn-success" ng-click="ctrl.request()">Пошук</button>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <hr>
+                            <div class="col-sm-3 col-md-3 col-lg-3">
+                                <h3>Результат пошуку:</h3>
+                            </div>
+                            <div class="col-sm-1 col-md-1 col-lg-1">
+                                <h3 id="Rez"></h3>
+                            </div>
+                        </div>
+
+                        <br>
+                    </div>
+
                 </div>
             </div>
 
@@ -243,6 +265,7 @@
 <script src="../assets/js/core.min.js"></script>
 <script src="../assets/js/app.min.js"></script>
 <script src="../assets/js/script.min.js"></script>
+<script src="../js/request/request_4.js"></script>
 
 </body>
 </html>

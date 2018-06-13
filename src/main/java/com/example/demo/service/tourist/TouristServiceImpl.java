@@ -47,5 +47,17 @@ public class TouristServiceImpl implements TouristService{
         return touristRepository.getCountTouristByGroup(group_id);
     }
 
+    public int getCountTouristByAge(int age) {
+        return touristRepository.getCountTouristByAge(age);
+    }
+
+    public List<Tourist> getTouristByAge(int age) {
+        return touristRepository.getTouristByAge(age);
+    }
+
+    public List<Tourist> getTouristByType(int type_id) {
+        return touristRepository.getTouristByType(type_id);
+    }
+
 
 }

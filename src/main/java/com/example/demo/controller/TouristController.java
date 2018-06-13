@@ -50,4 +50,20 @@ public class TouristController  {
     public int getCountTouristByGroup(@RequestParam("group_id") int group_id){
         return touristService.getCountTouristByGroup(group_id);
     }
+
+    @RequestMapping("/getTouristByAge")
+    public List<Tourist> getTouristByAge(@RequestParam("age") int age){
+        return touristService.getTouristByAge(age);
+    }
+
+    @RequestMapping("/getCountTouristByAge")
+    public int getCountTouristByAge(@RequestParam("age") int age){
+        return touristService.getCountTouristByAge(age);
+    }
+
+    @RequestMapping("/getTouristByType")
+    public List<Tourist> getTouristByType(@RequestParam("type_id") int type_id){
+        return touristService.getTouristByType(type_id);
+    }
+
 }
