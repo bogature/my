@@ -1,5 +1,5 @@
 package com.example.demo.enums;
 
 public enum TypeOfInstructor {
-    ATHLET,COACH,NULL
+    ATHLETE,COACH,NULL
 }
