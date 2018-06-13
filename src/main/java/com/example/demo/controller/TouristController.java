@@ -11,6 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/tourists")
 public class TouristController  {
+
     @Autowired
     TouristServiceImpl touristService;
 
@@ -38,5 +39,15 @@ public class TouristController  {
     @GetMapping("/getAll")
     public List<Tourist> getAllTourists(){
         return touristService.getAll();
+    }
+
+    @RequestMapping("/getTouristByGroup")
+    public List<Tourist> getTouristByGroup(@RequestParam("group_id") int group_id){
+        return touristService.getTouristByGroup(group_id);
+    }
+
+    @RequestMapping("/getCountTouristByGroup")
+    public int getCountTouristByGroup(@RequestParam("group_id") int group_id){
+        return touristService.getCountTouristByGroup(group_id);
     }
 }
