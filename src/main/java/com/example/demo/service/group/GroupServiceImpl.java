@@ -42,4 +42,20 @@ public class GroupServiceImpl implements GroupService {
     public List<Groups> getAll() {
         return groupRepository.findAll();
     }
+
+    public List<Groups> getGroupsBySection(int id) {
+        return groupRepository.getGroupsBySection(id);
+    }
+
+    public int getCountGroupsBySection(int id) {
+        return groupRepository.getCountGroupsBySection(id);
+    }
+
+    public List<Groups> getGroupsByCoach(int id) {
+        return groupRepository.getGroupsByCoach(id);
+    }
+
+    public int getCountGroupsByCoach(int id) {
+        return groupRepository.getCountGroupsByCoach(id);
+    }
 }

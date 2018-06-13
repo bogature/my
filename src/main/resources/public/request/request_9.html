@@ -32,7 +32,7 @@
     });
 </script>
 
-<body ng-app="my_req_6">
+<body ng-app="my_req_9">
 
 
 <div id="header"></div>
@@ -189,19 +189,16 @@
         <div class="row">
 
             <div class="col-lg-12 col-mg-12 col-ng-12">
-                <div class="card" ng-controller="req_6 as ctrl">
+                <div class="card" ng-controller="req_9 as ctrl">
                     <br>
-                    <h2 style="padding: 15px">Запит №6 Одержати кількість туристів задаго типу</h2>
+                    <h2 style="padding: 15px">Запит №9 Одержати список груп з заданим тренером</h2>
                     <div class="col-lg-12 col-mg-12 col-ng-12">
 
                         <br>
 
-                        <div class="col-sm-12 col-md-12 col-lg-12">
-                            <select class="form-control" id="Type">
-                                <option>AMATEUR</option>
-                                <option>ATHLETE</option>
-                                <option>COACH</option>
-                            </select>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <label>Тренер:</label>
+                            <select class="form-control" id="Coaches"></select>
                         </div>
 
                         <div class="col-sm-12 col-md-1 col-lg-1">
@@ -209,15 +206,28 @@
                             <button type="button" class="btn btn-success" ng-click="ctrl.request()">Пошук</button>
                         </div>
 
-                        <div class="col-sm-12 col-md-12 col-lg-12">
-                            <hr>
-                            <div class="col-sm-3 col-md-3 col-lg-3">
-                                <h3>Результат пошуку:</h3>
-                            </div>
-                            <div class="col-sm-1 col-md-1 col-lg-1">
-                                <h3 id="Rez"></h3>
-                            </div>
-                        </div>
+                        <hr>
+                        <h3>Результат пошуку:</h3>
+
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Група</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in coaches">
+                                <td>{{item.id}}</td>
+                                <td>{{item.name}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+                        <div id="Rez"></div>
+
+                        <br>
                     </div>
 
                 </div>
@@ -272,7 +282,7 @@
 <script src="../assets/js/core.min.js"></script>
 <script src="../assets/js/app.min.js"></script>
 <script src="../assets/js/script.min.js"></script>
-<script src="../js/request/request_6.js"></script>
+<script src="../js/request/request_9.js"></script>
 
 </body>
 </html>
