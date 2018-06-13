@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import com.example.demo.enums.TypeOfTourist;
 import com.example.demo.model.Tourist;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -20,8 +21,8 @@ public interface TouristRepository extends JpaRepository<Tourist,Integer> {
     int getCountTouristByGroup(@Param("group_id") int group_id);
 
 //    Req 3
-    @Query(" select tour from Tourist tour  where  tour.typeOfTourist > :type_id")
-    List<Tourist> getTouristByType(@Param("type_id") int type_id);
+    @Query(" select tour from Tourist tour  where  tour.typeOfTourist = :type_id")
+    List<Tourist> getTouristByType(@Param("type_id") TypeOfTourist type_id);
 
 //    Req 4
     @Query(" select count (tour) from Tourist tour where tour.age > :age")

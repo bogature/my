@@ -1,6 +1,7 @@
 package com.example.demo.service.tourist;
 
 import com.example.demo.dao.tourist.TouristDaoFakeJDBCImpl;
+import com.example.demo.enums.TypeOfTourist;
 import com.example.demo.model.Tourist;
 import com.example.demo.repository.TouristRepository;
 import com.example.demo.service.tourist.interfaces.TouristService;
@@ -55,7 +56,7 @@ public class TouristServiceImpl implements TouristService{
         return touristRepository.getTouristByAge(age);
     }
 
-    public List<Tourist> getTouristByType(int type_id) {
+    public List<Tourist> getTouristByType(TypeOfTourist type_id) {
         return touristRepository.getTouristByType(type_id);
     }
 

@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.datastorage.DataStorageFake;
+import com.example.demo.enums.TypeOfTourist;
 import com.example.demo.model.Tourist;
 import com.example.demo.service.tourist.TouristServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +63,7 @@ public class TouristController  {
     }
 
     @RequestMapping("/getTouristByType")
-    public List<Tourist> getTouristByType(@RequestParam("type_id") int type_id){
+    public List<Tourist> getTouristByType(@RequestParam("type_id") TypeOfTourist type_id){
         return touristService.getTouristByType(type_id);
     }
 
